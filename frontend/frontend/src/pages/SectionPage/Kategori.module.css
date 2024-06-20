@@ -1,0 +1,52 @@
+.kategori{
+    margin: 0 1rem;
+}
+.kategori h4, .kategori h2{
+    color: #1D204F;
+}
+h2{
+    font-size: 1.6rem;
+}
+
+
+@media only screen and (min-width: 375px) {
+    .kategoriContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 480px) {
+    .kategoriContainer{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .kategori{
+        margin: 0 1.2rem;
+    }
+   
+}
+@media only screen and (min-width: 768px) {
+    .kategori{
+        margin: 0 2rem;
+    }
+    .kategoriContainer{
+        margin-top: 1rem;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .kategori{
+        margin: 0 5rem;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .kategori{
+        margin: 0 6rem;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .kategoriContainer{
+        column-gap: 2rem;
+    }
+}

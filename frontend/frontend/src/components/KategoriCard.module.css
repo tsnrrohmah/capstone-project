@@ -1,0 +1,49 @@
+.kategoriCard{
+    width: 249px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 0 1.5rem 1rem;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+.kategoriCard:hover {
+    background-color: #e8f5e9;
+}
+
+.kategoriCard .icon{
+    width: 40px;
+}
+.kategoriCard .icon img{
+    width: 100%;
+}
+.kategoriCard h3, .kategoriCard p{
+    color: #1D204F;
+}
+.kategoriCard p{
+    font-size: 0.8rem;
+    font-weight: 300;
+    margin-top: 2px;
+}
+
+@media only screen and (min-width: 480px) {
+    .kategoriCard{
+        width: 200px;
+    }
+}
+@media only screen and (min-width: 768px) {
+    .kategoriCard{
+        width: 220px;
+        margin-bottom: 1.2rem;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .kategoriCard{
+        width: 205px;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .kategoriCard{
+        width: 240px;
+    }
+}

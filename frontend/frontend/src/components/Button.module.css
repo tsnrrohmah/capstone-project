@@ -1,0 +1,49 @@
+.primary, .secondary{
+    cursor: pointer;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.primary{
+    background-color: #3EB492;
+    color: white;
+    border: none;
+    padding: 12px 36px;
+}
+.primary:hover{
+    background-color: #319C7A;
+}
+
+.secondary{
+    background-color: white;
+    border: 2px solid #3EB492;
+    color: #3EB492;
+    padding: 10px 34px;
+}
+
+.iconButton {
+    display: flex;
+    align-items: center;
+    padding: 10px 60px;
+    border: none;
+    background-color: #1D204F;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+    gap: 1rem;
+ }
+  
+.iconButton:hover {
+    background-color: #35367A;
+}
+  
+.iconButton .label {
+    margin-left: 8px;
+}
+.iconButton span{
+    font-size: 0.8rem;
+    
+}

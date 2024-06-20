@@ -1,0 +1,66 @@
+/* Dropdown.module.css */
+
+.dropdown {
+    position: relative;
+    width: 150px;
+    margin-top: 1rem;
+  }
+  
+  select {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none; /* For older versions of Safari */
+    -moz-appearance: none; /* For older versions of Firefox */
+  }
+  
+  /* Style the arrow */
+  .dropdown::after {
+    content: '▼';
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #1D204F;
+  }
+  
+  /* Style options */
+  option {
+    background-color: #fff;
+    color: #333;
+
+  }
+  select{
+    color: #6a6a6a;
+    font-size: 15px;
+  }
+  
+  /* Style placeholder */
+  option[disabled] {
+    color: #999;
+  }
+  @media only screen and (min-width: 480px) {
+    .dropdown{
+      width: 170px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .dropdown{
+      width: 200px;
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .dropdown{
+      width: 230px;
+    }
+    select{
+      padding: 12px 12px;
+    }
+  }
+
+  

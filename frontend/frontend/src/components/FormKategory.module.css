@@ -1,0 +1,10 @@
+.label{
+    display: block;
+}
+.buttonSubmit{
+    border: none;
+    padding: 5px 12px;
+    background-color: #1D204F;
+    color: white;
+    border-radius: 16px;
+}

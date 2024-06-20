@@ -1,0 +1,63 @@
+.textAboutUs h3, .textAboutUs h2{
+    color: #1D204F;
+}
+.textAboutUs span{
+    color: #3EB492;
+    font-weight: 500;
+}
+.imgContainer img{
+    width: 100%;
+}
+@media only screen and (min-width: 375px) {
+    .cointainerAboutUs{
+        margin: 0 1rem;
+    }
+    .textAboutUs{
+        margin-bottom: 1rem;
+    }
+    .textAboutUs h3{
+        font-size: 0.9rem;
+    }
+    .textAboutUs h2{
+        font-size: 2rem;
+    }
+    .textAboutUs p{
+        margin-bottom: 1rem;
+    }
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+    .cointainerAboutUs{
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 2.7rem;
+        gap: 2.5rem;
+    }
+    .textAboutUs{
+        width: 60%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .cointainerAboutUs{
+        margin: 0 5rem;
+    }
+    .textAboutUs{
+        width: 55%;
+    }
+    .imgContainer{
+        width: 40%;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .cointainerAboutUs{
+        margin: 0 7rem;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .textAboutUs h2{
+        font-size: 2.5rem;
+    }
+}

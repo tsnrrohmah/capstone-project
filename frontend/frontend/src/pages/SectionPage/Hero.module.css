@@ -1,0 +1,115 @@
+/* .heroSection{
+    height: 100vh;
+} */
+.heroText {
+    color: #1D204F;
+}
+.heroText span{
+    color: #3EB492;
+}
+.imageContainer img{
+    width: 100%;
+}
+/* Style Button garis bawah */
+ .buttonContainer .daftar a{
+    position: relative;
+    text-decoration: none; 
+    color: #1D204F;
+    font-weight: 700;
+}
+.buttonContainer .daftar a::before,
+.buttonContainer .daftar a::after {
+        content: '';
+        position: absolute;
+        bottom: -6px; 
+        height: 2px; 
+        background-color: #1D204F; 
+        width: 50%; 
+        transition: width 0.3s ease;
+    }
+.buttonContainer .daftar a::before {
+        left: 0;
+    }
+.buttonContainer .daftar a::after {
+        right: 0;
+    }
+.underline-space:hover::before,
+.underline-space:hover::after {
+        width: 100%; 
+    }
+/* End Style Button garis bawah */
+
+
+
+@media only screen and (min-width: 375px) {
+
+    .heroSection{
+        margin: 0 1rem;
+    }
+    .heroText h3{
+        font-size: 1rem;
+    }
+    .heroText h1{
+        font-size: 2.5rem;
+    }
+    .heroText p{
+        margin-bottom: 1rem;
+    }
+    .buttonContainer{
+        display: flex;
+        justify-content: baseline;
+        align-items: center;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .imageContainer{
+        width: 100%;
+    }
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+    .heroSection{
+        display: flex;
+        margin: 0 2.5rem;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .heroText{
+        width: 50%;
+        font-weight: 500;
+
+    }
+    .imageContainer{
+        width: 50%;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .heroSection{
+        margin: 0 5rem;
+    }
+    .buttonContainer{
+        gap: 2.3rem;
+    }
+
+}
+@media only screen and (min-width: 1024px) {
+    .heroSection{
+        margin: 0 7rem;
+    }
+    .heroText{
+        width: 55%;
+    }
+    .heroText h1{
+        font-size: 3rem;
+    }
+    .heroText p{
+        margin-bottom: 2rem;
+        margin-top: 0.5rem;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .imageContainer{
+        width: 40%;
+    }
+}

@@ -1,0 +1,41 @@
+.product {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    
+    padding: 2rem;
+    margin-top: 3rem;
+  }
+  
+  .product h1{
+    color: #1D204F;
+  }
+  .lokasi{
+    color: #1D204F;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  
+  .imageProduct{
+    width: 60%;
+    margin: auto;
+  }
+  .image {
+    border: 1px solid #ccc;    
+    width: 100%;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+
+  }
+  .deskripsi{
+    font-size: 1rem;
+    color: #1D204F;
+  }
+  .text-container {
+    flex: 1; 
+  }
+  
+  .product-image {
+    max-width: 100%;
+  }
