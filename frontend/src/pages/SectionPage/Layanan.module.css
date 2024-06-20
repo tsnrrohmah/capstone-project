@@ -1,0 +1,84 @@
+.noUnderline{
+    text-decoration: none;
+}
+@media only screen and (min-width: 375px) {
+    .layanan{
+        margin: 0 1rem;
+    }
+    .layanan .text{
+        margin-bottom: 1rem;
+    }
+    .layanan .text h2{
+        color: #1D204F;
+    }
+
+    .button1{
+        display: none;
+    }
+    .containerLayanan{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .button2{
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+    }
+}
+/* @media only screen and (min-width: 480px) {
+} */
+@media only screen and (min-width: 768px) {
+    .button1{
+        display: block;
+    }
+    .button2{
+        display: none;
+    }
+    .containerText{
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        justify-content: space-between;
+    }
+    .containerText .text{
+        width: 60%;
+    }
+    .layanan{
+        margin: 0 2rem;
+    }
+    .containerLayanan{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 992px) {
+    .layanan{
+        margin: 0 5rem;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .layanan{
+        margin: 0 6rem;
+    }
+    
+}
+@media only screen and (min-width: 1280px) {
+    .containerLayanan{
+        gap: 2rem;
+    }
+}
+
+/* @media only screen and (min-width: 375px) {
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1280px) {
+} */

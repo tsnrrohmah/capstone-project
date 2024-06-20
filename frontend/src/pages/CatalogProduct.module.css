@@ -1,0 +1,102 @@
+
+.catalogProduct{
+    background-color: #1D204F;
+    color: white;
+}
+.catalogProduct p{
+    font-weight: 200;
+}
+.containerDropdown{
+    display: flex;
+}
+@media only screen and (min-width: 375px) {
+    .catalogProduct{
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    .containerDropdown{
+        padding-bottom: 2rem;
+    }
+    .searchResult{
+        margin: 0 1rem;
+    }
+    .containerResult{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.7rem;
+    }
+    .navMargin{
+        margin-bottom: 3rem;
+    }
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+    .catalogProduct{
+        padding: 2rem 3rem 0 3rem;
+    }
+    .containerFilter{
+        margin-bottom: 1rem;
+    }
+    .searchResult{
+        margin: 0 2.5rem;
+    }
+    .containerResult{
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        column-gap: 2rem;
+    }
+  
+}
+@media only screen and (min-width: 992px) {
+    .catalogProduct{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2rem 5rem 0 5rem;
+        height: 20rem;
+    }
+    .searchCatalog h1{
+        width: 80%;
+        font-size: 2.5rem;
+    }
+    .searchCatalog p{
+        width: 70%;
+    }
+    .containerFilter h4{
+        font-size: 1.15rem;
+    }
+    .searchResult{
+        margin: 0 5rem;
+    }
+    .containerResult{
+        column-gap: 0;
+    }
+    
+}
+@media only screen and (min-width: 1024px) {
+    .navMargin{
+        margin-bottom: 6rem;
+    }
+    .catalogProduct{
+        margin: 0 5rem 1rem 5rem;
+        padding: 0 2rem;
+        border-radius: 2rem;
+    }
+    .searchCatalog h1{
+        width: 100%;
+    }
+    .containerResult{
+        column-gap: 1.5rem;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .searchCatalog h1{
+        width: 70%;
+    }
+    .catalogProduct{
+        padding: 0 4rem;
+    }
+}

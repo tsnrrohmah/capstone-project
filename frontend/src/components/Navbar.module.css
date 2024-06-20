@@ -1,0 +1,147 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    box-shadow: 0 4px 6px -6px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    z-index: 88;
+    height: 65px;
+}
+.navbarIcon img{
+    width: 32px;
+}
+.navbarIcon{
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    text-decoration: none;
+}
+.navbarIcon span{
+    color: #3EB492;
+    font-weight: 600;
+    
+}
+.active{
+    color: #3EB492 !important;
+}
+
+.noUnderline{
+    text-decoration: none;
+}
+.containerList{
+    display: none;
+}
+.navbarList, .navbarButton{
+    display: none;
+}
+
+.navbarList .list{
+    text-decoration: none;
+    display: block;
+    color: rgb(49, 49, 49);
+    width: 100%;
+    font-weight: 400;
+}
+.navbarList .list:hover{
+    color: #3EB492;
+}
+.toggleButton button{
+    border: none;
+    background-color: transparent;
+}
+.toggleButton p{
+    font-size: 1.5rem;
+}
+.profilePicture {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+.logoutButton{
+    border: none;
+    padding: 8px 12px;
+    border-radius: 16px;
+    background-color: red;
+    color: white;
+}
+
+/* Mobile */
+.navMobile{
+    border-bottom: 1px solid rgb(200, 197, 197);
+    padding: 2rem 0;
+    margin-top: 2.3rem;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 99;
+    top: 0.8rem;
+}
+.navbarListMobile{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+.navbarListMobile .listMobile{
+    text-decoration: none;
+    color: black;
+}
+.navbarButtonMobile{
+    width: 200px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+@media only screen and (min-width: 768px) {
+   .navbar{
+    padding: 1rem 3rem;
+   }
+}
+@media only screen and (min-width: 992px) {
+    .navbar{
+        padding: 1rem 5rem;
+        
+    }
+    .navMobile{
+        display: none !important;
+    }
+    .toggleButton{
+        display: none;
+    }
+    .navbarButton{
+        display: block;
+    }
+    .navbarList{
+        display: flex;
+        gap: 1rem;
+        font-size: 1rem;
+        width: 380px;
+    }
+    .navbarList .list{
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* @media only screen and (min-width: 375px) {
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1280px) {
+} */

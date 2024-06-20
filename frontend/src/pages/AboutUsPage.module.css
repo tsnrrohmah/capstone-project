@@ -1,0 +1,24 @@
+.marginAboutUs{
+    margin-top: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+
+@media only screen and (min-width: 768px) {
+
+   .marginAboutUs{
+    margin-top: 6rem;
+}
+}
+/* @media only screen and (min-width: 375px) {
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1280px) {
+} */

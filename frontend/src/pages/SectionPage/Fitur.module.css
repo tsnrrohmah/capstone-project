@@ -1,0 +1,136 @@
+.singleFitur{
+    /* height: 141px; */
+    background-color: #1D204F;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    margin-bottom: 0.4rem;
+    cursor: default;
+}
+.singleFitur:hover{
+    background-color: #252860;
+
+}
+
+.fitur{
+    margin: 0 1rem;
+}
+.text{
+    text-align: center;
+}
+.text h4{
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+.text p{
+    font-weight: 200;
+    margin: 0 4px;
+}
+.textFitur span{
+    color: #3EB492;
+    font-weight: 600;
+}
+.textFitur h3, .textFitur h2{
+    color: #1D204F;
+} 
+
+@media only screen and (min-width: 375px) {
+    .singleFitur{
+        width: 350px;
+        height: 141px;
+    }
+    .singleFitur .text p{
+        margin: 0 1rem;
+
+    }
+    .textFitur h3{
+        font-size: 0.95rem;
+    }
+    .textFitur h2{
+        font-size: 1.8rem;
+    }
+    .textFitur p{
+        margin-bottom: 1rem;
+    }
+    .containerFitur{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+@media only screen and (min-width: 480px) {
+    .singleFitur{
+        width: 440px;
+    }
+    .singleFitur .text p{
+        margin: 0 1rem;
+
+    }
+}
+@media only screen and (min-width: 768px) {
+    .singleFitur{
+        width: 200px;
+        margin-bottom: 0.2rem;
+        height: 115px;
+    }
+    .text p{
+        font-size: 0.8rem;
+    }
+    .containerFitur{
+        flex-direction: row;
+        gap: 0.2rem;
+    }
+    .fitur{
+        display: flex;
+        margin: 0 2.2rem;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+}
+@media only screen and (min-width: 992px) {
+    .singleFitur{
+        width: 205px;
+        height: 120px;
+    }
+    .fitur{
+        margin: 0 5rem;
+
+    }
+    .textFitur h2{
+        font-size: 2rem;
+    }
+}
+@media only screen and (min-width: 1024px) {
+   
+    .text p{
+        font-size: 0.9rem;
+    }
+    .fitur{
+        margin: 0 6rem;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .fitur{
+        gap: 4rem;
+    }
+    .singleFitur{
+        width: 230px;
+    }
+}
+
+/* @media only screen and (min-width: 375px) {
+}
+@media only screen and (min-width: 480px) {
+}
+@media only screen and (min-width: 768px) {
+}
+@media only screen and (min-width: 992px) {
+}
+@media only screen and (min-width: 1024px) {
+}
+@media only screen and (min-width: 1280px) {
+} */
