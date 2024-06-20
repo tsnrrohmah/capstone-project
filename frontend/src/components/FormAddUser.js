@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import classes from './FormKategory.module.css';
+import classes from './FormKategory.module.css'; // Pastikan Anda memiliki file CSS ini
 import { useNavigate } from 'react-router-dom';
 
 const FormUser = ({ newUser, setNewUser }) => {
@@ -10,7 +10,7 @@ const FormUser = ({ newUser, setNewUser }) => {
     id_user: newUser.id_user || '',
     username: newUser.username || '',
     email: newUser.email || '',
-    password: '',
+    password: newUser.password || '',
     gambar: null,
     gambarURL: newUser.gambar || '',
     alamat: newUser.alamat || '',
@@ -84,7 +84,7 @@ const FormUser = ({ newUser, setNewUser }) => {
             <input type="email" name="email" value={formData.email} onChange={handleChange} />
           </div>
           <div>
-            <label className={classes.label}>Password (Isi Jika Ingin Diubah):</label>
+            <label className={classes.label}>Password:</label>
             <input type="password" name="password" value={formData.password} onChange={handleChange} />
           </div>
           <div>

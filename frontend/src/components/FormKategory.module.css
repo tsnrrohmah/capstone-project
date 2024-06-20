@@ -8,3 +8,9 @@
     color: white;
     border-radius: 16px;
 }
+
+.dropdown {
+    width: 80%; /* Sesuaikan lebar dropdown dengan form lainnya */
+    padding: 0.5rem; /* Padding untuk membuat dropdown lebih nyaman */
+    margin-bottom: 1rem; /* Margin bawah untuk ruang antara form elements */
+  }

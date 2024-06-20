@@ -7,7 +7,7 @@ import CatalogProduct from "./pages/CatalogProduct";
 import DashboardPage from "./DashboardPage";
 import TestAPI from './pages/TestAPI';
 import AboutUsPage from "./pages/AboutUsPage";
-import Dashboard from "./Dashboard/Dashboard";
+// import Dashboard from "./Dashboard/Dashboard";
 import AboutUs from "./AboutUs/AboutUs";
 import KelolaUser from "./AddUser/AddUser";
 import Pesanan from "./Pesanan/Pesanan";
@@ -48,7 +48,7 @@ function App() {
           <Route path="/layanan/:id" element={<LayananDetail />} /> {/* Rute untuk halaman detail */}
           {(role === "superadmin" || role === "admin") && (
           <Route path="/dashboard/*" element={<DashboardPage />}>
-            <Route path="" element={<Dashboard />} />
+            {/* <Route path="" element={<Dashboard />} /> */}
             <Route path="admin" element={<TambahAdmin />} />
             <Route path="about-us" element={<AboutUs />} />
             <Route path="kelola-user" element={<KelolaUser />} />

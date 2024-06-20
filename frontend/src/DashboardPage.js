@@ -38,7 +38,7 @@ const DashboardPage = () => {
           <SidebarDropdown>
             {(role === "superadmin" || role === "admin") && (
               <>
-                <SidebarLink to="/dashboard">Dashboard</SidebarLink>
+                {/* <SidebarLink to="/dashboard">Dashboard</SidebarLink> */}
                 <SidebarLink to="/dashboard/tambah-layanan">
                   Tambah Layanan
                 </SidebarLink>

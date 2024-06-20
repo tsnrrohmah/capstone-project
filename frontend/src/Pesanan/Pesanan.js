@@ -1,179 +1,116 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import { StyledPesanan } from "./StyledPesanan";
 import classes from "./Pesanan.module.css";
-import FormPesanan from '../components/FormPesanan';
+import FormPesanan from "../components/FormPesanan";
+import ShowPesanan from "./ShowPesanan";
 
 const Pesanan = () => {
+  //  Definisikan Variabel
   const [dataPesanan, setDataPesanan] = useState([]);
   const [dataAdmin, setDataAdmin] = useState([]);
   const [dataUser, setDataUser] = useState([]);
   const [dataTeknisi, setDataTeknisi] = useState([]);
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const [isShowVisible, setIsShowVisible] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
 
   // Fetch data pesanan
-  useEffect(() => {
-    axios.get('http://localhost:5000/order')
-      .then(response => {
-        setDataPesanan(response.data.data);
+  const fetchData = (url, setData) => {
+    axios
+      .get(url)
+      .then((response) => {
+        setData(response.data.data);
       })
-      .catch(error => {
-        console.error('There was an error fetching the data!', error);
+      .catch((error) => {
+        console.error(
+          `There was an error fetching the data from ${url}!`,
+          error
+        );
       });
+  };
+  useEffect(() => {
+    fetchData("http://localhost:5000/order", setDataPesanan);
+    fetchData("http://localhost:5000/admin", setDataAdmin);
+    fetchData("http://localhost:5000/users", setDataUser);
+    fetchData("http://localhost:5000/teknisi", setDataTeknisi);
   }, []);
 
-  // Fetch data admin
-  useEffect(() => {
-    axios.get('http://localhost:5000/admin')
-      .then(response => {
-        setDataAdmin(response.data.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the data!', error);
-      });
-  }, []);
-
-  // Fetch data user
-  useEffect(() => {
-    axios.get('http://localhost:5000/users')
-      .then(response => {
-        setDataUser(response.data.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the data!', error);
-      });
-  }, []);
-
-  // Fetch data teknisi
-  useEffect(() => {
-    axios.get('http://localhost:5000/teknisi')
-      .then(response => {
-        setDataTeknisi(response.data.data);
-      })
-      .catch(error => {
-        console.error('There was an error fetching the data!', error);
-      });
-  }, []);
-
-  const [newPesanan, setNewPesanan] = useState({
-    id_admin: "",
-    id_user: "",
-    id_teknisi: "",
-    tanggal_bayar: "",
-    tanggal_pelayanan: "",
-    total_harga: "",
-    opsi_pesanan: "",
-    status: "",
-  });
-
-  const [show, setShow] = useState(false);
-  const [editingId, setEditingId] = useState(null);
-  const [showDetails, setShowDetails] = useState(null);
-
-  const handleShow = () => {
-    setShow(!show);
+  // Menemukan Nama Admin, Nama User, dan Nama Teknisi
+  const findAdminNameById = (id) => {
+    const admin = dataAdmin.find((admin) => admin.id_admin === id);
+    return admin ? admin.username : "Unknown";
+  };
+  const findUserNameById = (id) => {
+    const user = dataUser.find((user) => user.id_user === id);
+    return user ? user.username : "Unknown";
+  };
+  const findTeknisiNameById = (id) => {
+    const teknisi = dataTeknisi.find((teknisi) => teknisi.id_teknisi === id);
+    return teknisi ? teknisi.nama : "Unknown";
   };
 
-  const handleAddPesanan = () => {
-    const newId = dataPesanan.length ? dataPesanan[dataPesanan.length - 1].id_pesanan + 1 : 1;
-    const pesananToAdd = { ...newPesanan, id_pesanan: newId };
-    setDataPesanan([...dataPesanan, pesananToAdd]);
-    setNewPesanan({
-      id_admin: "",
-      id_user: "",
-      id_teknisi: "",
-      tanggal_bayar: "",
-      tanggal_pelayanan: "",
-      total_harga: "",
-      opsi_pesanan: "",
-      status: "",
-    });
-    setShow(false);
+  const handleEditClick = (order) => {
+    setSelectedOrder(order);
+    setIsFormVisible(true);
+    setIsShowVisible(false);
+  };
+  const handleCloseForm = () => {
+    setIsFormVisible(false);
+    setIsShowVisible(false);
+  };
+  const handleShowClick = (order) => {
+    setSelectedOrder(order);
+    setIsShowVisible(true);
+    setIsFormVisible(false);
+  };
+  const handleCloseShow = () => {
+    setIsShowVisible(false);
   };
 
   const handleDeletePesanan = (id_pesanan) => {
-    axios.delete(`http://localhost:5000/order/${id_pesanan}`)
-      .then(response => {
-        const updatedDataPesanan = dataPesanan.filter((pesanan) => pesanan.id_pesanan !== id_pesanan);
-        setDataPesanan(updatedDataPesanan);
-        console.log(response.data); // Log the response from the server
+    axios
+      .delete(`http://localhost:5000/order/${id_pesanan}`)
+      .then((response) => {
+        console.log("Order deleted:", response.data);
+        setDataPesanan((prevData) =>
+          prevData.filter((pesanan) => pesanan.id_pesanan !== id_pesanan)
+        );
       })
-      .catch(error => {
-        console.error('There was an error deleting the order!', error);
-      });
-  };
-
-  const handleEditPesanan = (id_pesanan) => {
-    const pesananToEdit = dataPesanan.find((pesanan) => pesanan.id_pesanan === id_pesanan);
-    setEditingId(id_pesanan);
-    setNewPesanan(pesananToEdit);
-    setShow(true);
-  };
-
-  const handleSaveEditPesanan = () => {
-    const updatedDataPesanan = dataPesanan.map((pesanan) =>
-      pesanan.id_pesanan === newPesanan.id_pesanan ? newPesanan : pesanan
-    );
-    setDataPesanan(updatedDataPesanan);
-    setNewPesanan({
-      id_admin: "",
-      id_user: "",
-      id_teknisi: "",
-      tanggal_bayar: "",
-      tanggal_pelayanan: "",
-      total_harga: "",
-      opsi_pesanan: "",
-      status: "",
-    });
-    setEditingId(null);
-    setShow(false);
-  };
-
-  const handleShowDetails = (id_pesanan) => {
-    setShowDetails(id_pesanan);
-  };
-
-  const handleCloseDetails = () => {
-    setShowDetails(null);
-  };
-
-  const findUsernameByIdAdmin = (idAdmin, data) => {
-    const found = data.find(item => item.id_admin === idAdmin);
-    return found ? found.username : 'Unknown';
-  };
-  const findUsernameByIdUser = (idUser, data) => {
-    const found = data.find(item => item.id_user === idUser);
-    return found ? found.username : 'Unknown';
-  };
-
-  const findNameByIdTeknisi = (idTeknisi, data) => {
-    const found = data.find(item => item.id_teknisi === idTeknisi);
-    return found ? found.nama : 'Unknown';
+      .catch((error) => {
+        if (error.response) {
+          // The request was made and the server responded with a status code
+          // that falls out of the range of 2xx
+          console.error("Backend returned status:", error.response.status);
+          console.error("Response body:", error.response.data);
+        } else if (error.request) {
+          // The request was made but no response was received
+          console.error("No response received:", error.request);
+        } else {
+          // Something happened in setting up the request that triggered an Error
+          console.error("Error", error.message);
+        }
+      });
   };
 
   return (
     <StyledPesanan>
       <h1>Daftar Pesanan</h1>
-      {!show && <button onClick={handleShow} className={classes.buttonEdit}>Tambah Pesanan Baru</button>}
       <div>
-        {show && (
+        {isFormVisible && (
           <div className={classes.inputPesanan}>
-            <FormPesanan
-              newPesanan={newPesanan}
-              setNewPesanan={setNewPesanan}
-              isEditing={editingId !== null}
-            />
-            <div className={classes.buttonForm}>
-              {editingId !== null ? (
-                <button onClick={handleSaveEditPesanan} className={classes.buttonEdit}>Simpan Perubahan ini</button>
-              ) : (
-                <button onClick={handleAddPesanan} className={classes.buttonEdit}>Tambah Pesanan Baru</button>
-              )}
-              <button onClick={handleShow} className={classes.buttonEdit}>Tutup</button>
-            </div>
+            <FormPesanan order={selectedOrder} onClose={handleCloseForm} />
           </div>
         )}
       </div>
-      <table >
+
+      {isShowVisible && (
+        <div>
+          <ShowPesanan order={selectedOrder} onClose={handleCloseShow} />
+        </div>
+      )}
+
+      <table className={classes.table}>
         <thead>
           <tr>
             <th>ID Pesanan</th>
@@ -189,39 +126,31 @@ const Pesanan = () => {
           </tr>
         </thead>
         <tbody>
-          {dataPesanan.map((pesanan) => (
-            <React.Fragment key={pesanan.id_pesanan}>
+          {dataPesanan.map((order) => (
+            <React.Fragment key={order.id_pesanan}>
               <tr>
-                <td>{pesanan.id_pesanan}</td>
-                <td>{findUsernameByIdAdmin(pesanan.id_admin, dataAdmin)}</td>
-                <td>{findUsernameByIdUser(pesanan.id_user, dataUser)}</td>
-                <td>{findNameByIdTeknisi(pesanan.id_teknisi, dataTeknisi)}</td>
-                <td>{pesanan.tanggal_bayar}</td>
-                <td>{pesanan.tanggal_pelayanan}</td>
-                <td>{pesanan.total_harga}</td>
-                <td>{pesanan.opsi_pembayaran}</td>
-                <td>{pesanan.status}</td>
+                <td>{order.id_pesanan}</td>
+                <td>{findAdminNameById(order.id_admin)}</td>
+                <td>{findUserNameById(order.id_user)}</td>
+                <td>{findTeknisiNameById(order.id_teknisi)}</td>
+                <td>{new Date(order.tanggal_bayar).toLocaleDateString()}</td>
                 <td>
-                  <button onClick={() => handleShowDetails(pesanan.id_pesanan)} className={classes.buttonShow}>Show</button>
-                  <button onClick={() => handleEditPesanan(pesanan.id_pesanan)} className={classes.buttonEdit}>Edit</button>
-                  <button onClick={() => handleDeletePesanan(pesanan.id_pesanan)} className={classes.buttonDanger}>Hapus</button>
+                  {new Date(order.tanggal_pelayanan).toLocaleDateString()}
                 </td>
+                <td>{order.total_harga}</td>
+                <td>{order.opsi_pembayaran}</td>
+                <td>{order.status}</td>
+                <td>
+                  <button className={classes.buttonShow} onClick={() => handleShowClick(order)}>Details</button>
+                  <button
+                    className={classes.buttonEdit}
+                    onClick={() => handleEditClick(order)}
+                  >
+                    Edit
+                  </button>
+                  <button className={classes.buttonDanger} onClick={() => handleDeletePesanan(order.id_pesanan)}>Hapus</button>
+                  </td>
               </tr>
-              {showDetails === pesanan.id_pesanan && (
-                <div className={classes.inputLayanan}>
-                  <h1>Detail Pesanan</h1>
-                  <p><strong>ID Pesanan:</strong> {pesanan.id_pesanan}</p>
-                  <p><strong>ID Admin:</strong> {findUsernameByIdAdmin(pesanan.id_admin, dataAdmin)}</p>
-                  <p><strong>ID User:</strong> {findUsernameByIdUser(pesanan.id_user, dataUser)}</p>
-                  <p><strong>ID Teknisi:</strong> {findNameByIdTeknisi(pesanan.id_teknisi, dataTeknisi)}</p>
-                  <p><strong>Tanggal Bayar:</strong> {pesanan.tanggal_bayar}</p>
-                  <p><strong>Tanggal Pelayanan:</strong> {pesanan.tanggal_pelayanan}</p>
-                  <p><strong>Total Harga:</strong> {pesanan.total_harga}</p>
-                  <p><strong>Opsi Pesanan:</strong> {pesanan.opsi_pesanan}</p>
-                  <p><strong>Status:</strong> {pesanan.status}</p>
-                  <button onClick={handleCloseDetails} className={classes.buttonEdit}>Tutup</button>
-                </div>
-              )}
             </React.Fragment>
           ))}
         </tbody>

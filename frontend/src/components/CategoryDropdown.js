@@ -24,7 +24,7 @@ function CategoryDropdown({ onSelect }) {
 
   const handleSelect = (option) => {
     onSelect(option);
-    
+    // Anda dapat melakukan logika lain yang diperlukan dengan pilihan yang dipilih di sini
   };
 
   return (

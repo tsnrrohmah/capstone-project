@@ -24,3 +24,39 @@ router.delete('/:id', teknisi.deleteteknisi);
 
 module.exports = router;
 
+
+
+
+// var express = require('express');
+// var router = express.Router();
+// //import contoller
+// var teknisi = require('../controller/techniciancontroller');
+// var upload = require('../library/upload');
+// /**
+//  * INDEX Kelas
+//  */
+// router.get('/', teknisi.getAllteknisi);
+// /*
+//  * INDEX Kelas berdasarkan id
+//  */
+// router.get('/:id', teknisi.getteknisiId);
+// /**
+//  * STORE POST kelas
+//  */
+
+
+// router.post('/',teknisi.createteknisi);
+// /*
+//  * UPDATE kelas
+//  */
+// router.put('/:id', teknisi.updateteknisi);
+// /*
+//  * DELETE kelas
+//  */
+// router.delete('/:id', teknisi.deleteteknisi);
+
+
+
+
+// module.exports = router;
+

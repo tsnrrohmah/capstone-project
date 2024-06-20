@@ -25,19 +25,19 @@ function Login() {
             if (response.ok) {
                 const data = await response.json();
                 localStorage.setItem('authToken', data.token);
-                localStorage.setItem('username', data.user.username); 
+                localStorage.setItem('username', data.user.username); // Menyimpan peran pengguna
                 localStorage.setItem('no_hp', data.user.no_hp); 
                 localStorage.setItem('id_user', data.user.id_user); 
-                console.log('Logged in as:', data.user); 
-                
+                console.log('Logged in as:', data.user); // Debugging: memastikan peran disimpan dengan benar
+                // Menyimpan peran pengguna
                 setIsLoggedIn(true);
-                navigate('/'); 
+                navigate('/'); // Redirect after successful login
             } else {
-                setShowPopup(true); 
+                setShowPopup(true); // Show popup on login failure
             }
         } catch (error) {
             console.error('Error during login:', error);
-            setShowPopup(true);
+            setShowPopup(true); // Show popup on error
         }
     };
 

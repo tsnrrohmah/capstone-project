@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import classes from './FormTeknisi.module.css'; 
+import classes from './FormTeknisi.module.css'; // Pastikan Anda memiliki file CSS ini
 import { useNavigate } from 'react-router-dom';
 
 const FormTeknisi = ({ newTeknisi, setNewTeknisi }) => {

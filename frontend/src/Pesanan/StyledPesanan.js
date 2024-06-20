@@ -51,13 +51,13 @@ export const StyledPesanan = styled.div`
     margin-top: 20px;
   }
 
+  th{
+    font-size: 13px;
+  }
   th, td {
     border: 1px solid #ddd;
-    padding: 3px;
-    text-align: left;
+    
+    text-align: center;
   }
 
-  th {
-    background-color: #f2f2f2;
-  }
 `;

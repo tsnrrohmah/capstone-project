@@ -18,7 +18,7 @@ const PORT = process.env.PORT || 8080; // Mendefinisikan PORT
 
 // Middleware CORS untuk mengizinkan permintaan dari domain lain
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ['http://localhost:3000','https://fe-msib-6-penyedia-jasa-02.educalab.id'], // Gantilah ini dengan domain frontend Anda jika berbeda
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Metode HTTP yang diizinkan
   allowedHeaders: ['Content-Type', 'Authorization'], // Header yang diizinkan
   credentials: true // Jika Anda memerlukan pengelolaan kredensial seperti cookies
@@ -47,6 +47,7 @@ app.use((err, req, res, next) => {
     res.status(500).json({ error: 'Something went wrong' });
 });
 
+// Mendaftarkan aplikasi Express untuk mendengarkan permintaan pada PORT tertentu
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

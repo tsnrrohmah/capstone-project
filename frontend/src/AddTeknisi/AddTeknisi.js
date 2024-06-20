@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { StyledTambahTeknisi } from "./StyledAddTeknisi";
-import classes from "./AddTeknisi.module.css"; 
-import FormTeknisi from "../components/FormTeknisi"; 
+import { StyledTambahTeknisi } from "./StyledAddTeknisi"; // Pastikan Anda punya StyledTambahTeknisi
+import classes from "./AddTeknisi.module.css"; // Pastikan Anda punya file CSS ini
+import FormTeknisi from "../components/FormTeknisi"; // Pastikan Anda punya FormTeknisi
 
 const TambahTeknisi = () => {
   const [dataTeknisi, setDataTeknisi] = useState([]);
@@ -66,7 +66,7 @@ const TambahTeknisi = () => {
     }
   };
 
-  const baseURL = 'http://localhost:5000'; 
+  const baseURL = 'http://localhost:5000'; // Base URL backend Anda
   const handleShowDetails = (id) => setShowDetails(id);
 
   const handleCloseDetails = () => setShowDetails(null);
